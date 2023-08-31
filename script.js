@@ -1,12 +1,21 @@
 const showNumbersButton = document.getElementById("showNumbersButton");
-const currentNumberElement = document.getElementById("currentNumber");
+const oddNumbersList = document.getElementById("oddNumbersList");
 let currentNumber = 1;
 
 showNumbersButton.addEventListener("click", function() {
   if (currentNumber < 100) {
-    currentNumberElement.textContent = currentNumber;
+    const numberDiv = document.createElement("div");
+    numberDiv.className = "number-item";
+    numberDiv.textContent = currentNumber;
+    oddNumbersList.appendChild(numberDiv);
+
     currentNumber += 2;
   } else {
-    currentNumberElement.textContent = "No more odd numbers.";
+    showNumbersButton.disabled = true;
   }
 });
+
+
+
+
+
