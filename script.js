@@ -1,21 +1,17 @@
-const showNumbersButton = document.getElementById("showNumbersButton");
-const oddNumbersList = document.getElementById("oddNumbersList");
-let currentNumber = 1;
+function calculateSum() {
+  const inputString = document.getElementById('inputString').value;
+  const array = inputString.split(',').map(Number); // Convert the input string to an array of numbers
+  const sum = sumArray(array);
 
-showNumbersButton.addEventListener("click", function() {
-  if (currentNumber < 100) {
-    const numberDiv = document.createElement("div");
-    numberDiv.className = "number-item";
-    numberDiv.textContent = currentNumber;
-    oddNumbersList.appendChild(numberDiv);
+  document.getElementById('result').textContent = sum;
+}
 
-    currentNumber += 2;
-  } else {
-    showNumbersButton.disabled = true;
+function sumArray(array) {
+  let sum = 0;
+
+  for (let i = 0; i < array.length; i++) {
+      sum += array[i];
   }
-});
 
-
-
-
-
+  return sum;
+}
